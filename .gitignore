@@ -1,0 +1,5 @@
+node_modules
+.vscode
+data
+lib/**/*.d.ts
+lib/**/*.js

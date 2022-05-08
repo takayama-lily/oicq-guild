@@ -1,0 +1,16 @@
+{
+  "name": "oicq-guild",
+  "version": "0.0.0",
+  "description": "guild plugin for oicq",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": "https://github.com/takayama-lily/oicq-guild",
+  "author": "takayama",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "oicq": "^2.2.2"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}
