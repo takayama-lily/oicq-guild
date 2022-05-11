@@ -40,3 +40,8 @@ app.on("message", e => {
 **how to clear the slider captcha:**
 
 <https://github.com/takayama-lily/oicq/wiki/01.使用密码登录-(滑动验证码教程)>
+
+**protobuf分析工具:**
+
+https://protobuf-decoder.netlify.app  
+https://github.com/takayama-lily/unpack-tools
