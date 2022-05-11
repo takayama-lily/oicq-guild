@@ -1,6 +1,6 @@
 {
   "name": "oicq-guild",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "guild plugin for oicq",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -11,6 +11,13 @@
     "oicq": "^2.2.2"
   },
   "scripts": {
-    "test": "node test.js"
-  }
+    "test": "tsc && node test.js"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.31"
+  },
+  "files": [
+    "lib/**/*.js",
+    "lib/**/*.d.ts"
+  ]
 }

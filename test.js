@@ -1,9 +1,10 @@
 "use strict"
 const { createClient } = require("oicq")
 const { log } = require("oicq/lib/common")
+const { GuildApp } = require("./lib/index")
 
-const account = 0
-const password = "******"
+const account = Number(process.env.OICQ_GUILD_ACCOUNT)
+const password = process.env.OICQ_GUILD_PASSWORD
 
 const client = createClient(account, {
 	log_level: "warn",
@@ -15,22 +16,14 @@ client.on("system.login.slider", function (e) {
 	process.stdin.once("data", _ => this.login())
 }).login(password)
 
-const known = [
-	"OnlinePush.PbPushGroupMsg",
-	"OnlinePush.PbPushDisMsg",
-	"OnlinePush.ReqPush",
-	"OnlinePush.PbPushTransMsg",
-	"OnlinePush.PbC2CMsgSync",
-	"MessageSvc.PushNotify",
-	"MessageSvc.PushReaded",
-	"ConfigPushSvc.PushDomain",
-	"ConfigPushSvc.PushReq",
-	"QualityTest.PushList",
-]
+const app = GuildApp.bind(client)
 
-client.on("internal.sso", function (cmd, payload) {
-	if (known.includes(cmd)) return
-	console.log("received:", cmd)
-	log(payload)
-	console.log("")
+process.stdin.on("data", async (data) => {
+	const cmd = String(data).trim()
+	try {
+		const res = await eval(cmd)
+		console.log(res)
+	} catch (e) {
+		console.log(e)
+	}
 })
